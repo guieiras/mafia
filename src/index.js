@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { Router, Link } from "@reach/router"
+
+import 'semantic-ui-css/semantic.min.css'
+
+import Game from './pages/Game';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Game path=":gameId" />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
