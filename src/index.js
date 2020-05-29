@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Link } from "@reach/router"
 
 import 'semantic-ui-css/semantic.min.css'
+import './assets/game-icons/game-icons.css'
 
 import Game from './pages/Game';
 import * as serviceWorker from './serviceWorker';
