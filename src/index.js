@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Link } from "@reach/router"
+import { Router } from "@reach/router"
 
 import 'semantic-ui-css/semantic.min.css'
 import './assets/game-icons/game-icons.css'

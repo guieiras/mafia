@@ -1,6 +1,9 @@
 import React from 'react';
+import { Image, Grid, Segment } from 'semantic-ui-react';
+import { DropTarget } from 'react-drag-drop-container';
+
 import db from '../boundaries/database'
-import { Image, List, Segment } from 'semantic-ui-react';
+import Emblem from '../components/emblem'
 
 export default function Game({ gameId }) {
   const [game, setGame] = React.useState({ players: [], roles: [] });
@@ -12,16 +15,23 @@ export default function Game({ gameId }) {
   return (
     <div className="Game">
       <Segment raised></Segment>
-      <List relaxed divided verticalAlign='middle'>
+      <Grid padded>
         {
-          game.players.map((player) => <List.Item>
-            <List.Content floated='right'>
-            </List.Content>
-            <Image avatar src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
-            <List.Content>{player}</List.Content>
-          </List.Item>)
+          game.players.map((player, i) => (
+            <Grid.Row key={i}>
+              <Grid.Column>
+                <DropTarget targetKey="emblem" onHit={(target) => { console.log(target) }}>
+                  <Image avatar src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
+                  { player }
+                </DropTarget>
+              </Grid.Column>
+            </Grid.Row>
+          ))
         }
-      </List>
+      </Grid>
+      <Segment raised>
+        <Emblem icon="targeted" description="Alvo" />
+      </Segment>
     </div>
   );
 }
