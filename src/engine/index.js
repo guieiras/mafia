@@ -27,7 +27,7 @@ export default class Engine {
       }
     });
 
-    this.nextAction();
+    setTimeout(() => this.nextAction());
   }
 
   currentTimeAction(role) {
@@ -36,10 +36,22 @@ export default class Engine {
   }
 
   nextAction() {
-    if (this.state.stack.length === 0) { this.nextTick(); }
+    if (this.state.stack.length === 0) {
+      this.state.action = {};
+      this.setGameState(this.state);
+
+      return this.nextTick();
+    }
     const action = this.state.stack.splice(0, 1)[0];
     this.state.action = action(this.state);
-    this.state.action.resolve = this.nextAction;
     this.setGameState(this.state);
+  }
+
+  commit() {
+    this.state.action.emblems.forEach((e) => {
+      e.resolve(e.target, this.state, () => { this.setGameState(this.state) });
+    });
+    if (this.state.action.resolve) { this.state.action.resolve(); }
+    this.nextAction();
   }
 }

@@ -9,7 +9,7 @@ import Players from '../components/Game/players'
 
 
 export default function Game({ gameId }) {
-  let engine;
+  const engine = React.useRef();
   const [gameState, setGameState] = React.useState(
     { players: [], roles: [], action: {} }
   );
@@ -18,13 +18,16 @@ export default function Game({ gameId }) {
     db.games.get({ id: gameId }).then(bindEngine);
   }, [gameId]);
 
-  function bindEngine(dbGame) { engine = new Engine(dbGame, setGameState); }
+  function bindEngine(dbGame) { engine.current = new Engine(dbGame, setGameState); }
+  function resolveActions() {
+    engine.current.commit();
+  }
 
   return (
     <div className="Game">
       <CurrentAction gameState={gameState} />
       <Players gameState={gameState} />
-      <Actions gameState={gameState} />
+      <Actions gameState={gameState} onResolve={resolveActions} />
     </div>
   );
 }

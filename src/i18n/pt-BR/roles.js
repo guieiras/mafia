@@ -1,3 +1,4 @@
 export default ({
-  narrator: 'Narrador'
+  narrator: 'Narrador',
+  generic: 'Cidadão'
 });

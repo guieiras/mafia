@@ -4,6 +4,7 @@ import { Router } from "@reach/router"
 
 import 'semantic-ui-css/semantic.min.css'
 import './assets/game-icons/game-icons.css'
+import './index.css'
 
 import Game from './pages/Game';
 import * as serviceWorker from './serviceWorker';

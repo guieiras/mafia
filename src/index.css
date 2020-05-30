@@ -1,0 +1,7 @@
+.ui.grid>.row {
+  padding-bottom: 0;
+}
+
+.ui.label.emblem-valid > .icon {
+  margin: 0;
+}

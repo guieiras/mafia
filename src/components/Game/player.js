@@ -1,15 +1,19 @@
 import React from 'react';
-import { Grid, Image } from 'semantic-ui-react';
+import { observer } from 'mobx-react';
 import { DropTarget } from 'react-drag-drop-container';
+import { Grid } from 'semantic-ui-react';
+import Emblem from './emblem';
+import i18n from '../../i18n';
 
-export default function Players({ player }) {
-
-  return <Grid.Row>
-    <Grid.Column>
-      <DropTarget targetKey="emblem" dropData={{player}}>
-        <Image avatar src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
-        { player.name }
-      </DropTarget>
+export default observer(function Player({ player, emblems }) {
+  if (player.state === 'hidden') { return null; }
+  return <DropTarget as="div" className="row" targetKey="emblem" dropData={{player}}>
+    <Grid.Column width={11}>
+      { player.name }
+      <small style={{display: 'block'}}>{ i18n.roles[player.role] }</small>
     </Grid.Column>
-  </Grid.Row>
-}
+    <Grid.Column width={5} textAlign="right">
+      { emblems.filter((e) => e.target?.id === player.id).map((e, i) => <Emblem key={i} type="temp" icon={e.icon} />) }
+    </Grid.Column>
+  </DropTarget>
+})

@@ -13,7 +13,7 @@ function discoverNarrator() {
     name: 'discoverNarrator',
     emblems: [
       addRole('narrator', {
-        afterResolve(target) { target.visible = false; }
+        afterResolve(target) { target.state = 'hidden'; }
       })
     ]
   };
