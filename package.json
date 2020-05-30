@@ -9,7 +9,7 @@
     "mobx-react": "^6.2.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-drag-drop-container": "^6.1.1",
+    "react-drag-drop-container": "guieiras/react-drag-drop-container",
     "react-scripts": "3.4.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2",
