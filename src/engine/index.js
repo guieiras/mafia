@@ -37,6 +37,7 @@ export default class Engine {
   }
 
   nextAction() {
+    if (this.reachedSomeWinCondition()) { return null; }
     if (this.state.stack.length === 0) {
       this.state.action = {};
       this.setGameState(this.state);
@@ -65,5 +66,22 @@ export default class Engine {
       this.state.action.resolve(this.state, () => { this.setGameState(this.state); });
     }
     this.nextAction();
+  }
+
+  reachedSomeWinCondition() {
+    return this.state.roles.some((role) => {
+      const win = role.win && role.win(this.state);
+
+      if (win) {
+        this.state.action = {
+          name: `${role.id}Win`,
+        };
+        this.setGameState(this.state);
+
+        return true;
+      }
+
+      return false;
+    });
   }
 }
