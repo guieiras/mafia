@@ -22,8 +22,9 @@ export default observer(({ player, emblems }) => {
       </Grid.Column>
       <Grid.Column width={5} textAlign="right">
         {
-          player.emblems
-            .map((e) => <Emblem key={e.type} type="active" icon={e.icon} />)
+          Object
+            .keys(player.emblems)
+            .map((e) => <Emblem key={e} type="active" icon={player.emblems[e].icon} />)
         }
         {
           emblems

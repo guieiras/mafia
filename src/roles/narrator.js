@@ -35,7 +35,6 @@ function playerLynch() {
       observable({
         icon: 'guillotine',
         description: i18n.emblems.lynch,
-        validateTarget: (target) => target.state === 'active',
         valid: () => true,
         resolve(target, game, commit) {
           if (target) { target.state = 'dead'; }
