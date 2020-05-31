@@ -7,7 +7,12 @@ export default observer(({ icon, description, emblem }) => (
   <DragDropContainer
     targetKey="emblem"
     dragData={{ emblem }}
-    onDrop={(e) => { emblem.target = e.dropData.player; }}
+    onDrop={(e) => {
+      const validateTarget = emblem.validateTarget || ((target) => target.state === 'active');
+      if (validateTarget(e.dropData.player)) {
+        emblem.target = e.dropData.player;
+      }
+    }}
   >
     <Label>
       <i
