@@ -3,7 +3,7 @@ import Dexie from 'dexie';
 const db = new Dexie('mafia-moderator');
 
 db.version(1).stores({
-  games: 'id'
+  games: 'id',
 });
 
 export default db;

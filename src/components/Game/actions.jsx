@@ -4,21 +4,26 @@ import { Segment, Button } from 'semantic-ui-react';
 
 import ActionEmblem from './actionEmblem';
 
-export default observer(function Actions({ gameState, onResolve }) {
+export default observer(({ gameState, onResolve }) => {
   const valid = () => (gameState.action.emblems || []).every((e) => e.valid(e));
-  const resolve = () => valid() ? onResolve() : null;
-  return <Segment raised>
-    { gameState.action?.emblems &&
+  const resolve = () => (valid() ? onResolve() : null);
+  return (
+    <Segment raised>
+      {gameState.action && gameState.action.emblems
+    && (
     <Button
       floated="right"
       color={valid() ? 'green' : 'grey'}
       icon="arrow right"
       size="tiny"
-      onClick={resolve} /> }
-    {
+      onClick={resolve}
+    />
+    ) }
+      {
       (gameState.action.emblems || []).map((emblem, i) => (
         <ActionEmblem key={i} description={emblem.description} icon={emblem.icon} emblem={emblem} />
       ))
     }
-  </Segment>
-})
+    </Segment>
+  );
+});

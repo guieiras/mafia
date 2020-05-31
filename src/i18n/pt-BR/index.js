@@ -1,4 +1,4 @@
-import actions from './actions'
-import roles from './roles'
+import actions from './actions';
+import roles from './roles';
 
 export default { actions, roles };

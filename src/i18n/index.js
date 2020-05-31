@@ -1,3 +1,3 @@
-import ptBr from './pt-BR'
+import ptBr from './pt-BR';
 
 export default ptBr;

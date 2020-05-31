@@ -1,5 +1,5 @@
-import i18n from '../../i18n';
 import { observable } from 'mobx';
+import i18n from '../../i18n';
 
 export default function addRole(role, options) {
   return observable({
@@ -11,6 +11,6 @@ export default function addRole(role, options) {
       target.role = role;
       if (options.afterResolve) { options.afterResolve(target, game); }
       commit();
-    }
-  })
+    },
+  });
 }

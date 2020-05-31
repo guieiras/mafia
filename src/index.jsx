@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router } from "@reach/router"
+import { Router } from '@reach/router';
 
-import 'semantic-ui-css/semantic.min.css'
-import './assets/game-icons/game-icons.css'
-import './index.css'
+import 'semantic-ui-css/semantic.min.css';
+import './assets/game-icons/game-icons.css';
+import './index.css';
 
 import Game from './pages/Game';
 import * as serviceWorker from './serviceWorker';
@@ -15,7 +15,7 @@ ReactDOM.render(
       <Game path=":gameId" />
     </Router>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

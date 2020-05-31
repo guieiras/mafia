@@ -1,3 +1,3 @@
 export default ({
-  discoverNarrator: 'Identifique o Narrador'
+  discoverNarrator: 'Identifique o Narrador',
 });

@@ -1,4 +1,4 @@
 export default ({
   id: 'generic',
-  actions: {}
-})
+  actions: {},
+});

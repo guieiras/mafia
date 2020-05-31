@@ -6,5 +6,10 @@
     "extends": [
         "eslint:recommended",
         "airbnb"
-    ]
+    ],
+    "rules": {
+        "react/no-array-index-key": "off",
+        "react/prop-types": "off",
+        "no-param-reassign": "off"
+    }
 }
