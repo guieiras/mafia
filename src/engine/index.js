@@ -45,15 +45,25 @@ export default class Engine {
     }
     const action = this.state.stack.splice(0, 1)[0];
     this.state.action = action(this.state);
-    this.setGameState(this.state);
+
+    if (this.state.action.autoResolve) {
+      this.commit();
+    } else {
+      this.setGameState(this.state);
+    }
     return null;
   }
 
   commit() {
-    this.state.action.emblems.forEach((e) => {
-      e.resolve(e.target, this.state, () => { this.setGameState(this.state); });
-    });
-    if (this.state.action.resolve) { this.state.action.resolve(); }
+    if (this.state.action.emblems) {
+      this.state.action.emblems.forEach((e) => {
+        e.resolve(e.target, this.state, () => { this.setGameState(this.state); });
+      });
+    }
+
+    if (this.state.action.resolve) {
+      this.state.action.resolve(this.state, () => { this.setGameState(this.state); });
+    }
     this.nextAction();
   }
 }
