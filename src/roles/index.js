@@ -1,7 +1,9 @@
+import Assassin from './assassin';
 import Generic from './generic';
 import Narrator from './narrator';
 
 const roles = [
+  Assassin,
   Narrator,
 ];
 
