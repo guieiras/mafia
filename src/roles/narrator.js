@@ -53,4 +53,10 @@ export default ({
     t11: () => cityWakeup,
     t12: () => playerLynch,
   },
+  win(state) {
+    const assassins = state.players.filter((player) => player.role === 'assassin');
+
+    return assassins.length > 0
+      && assassins.filter((player) => player.state === 'active').length === 0;
+  },
 });
