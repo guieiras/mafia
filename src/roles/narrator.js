@@ -12,9 +12,17 @@ function discoverNarrator() {
   };
 }
 
+function citySleeps() {
+  return {
+    name: 'citySleeps',
+    emblems: [],
+  };
+}
+
 export default ({
   id: 'narrator',
   actions: {
     t1: onDay(0, discoverNarrator),
+    t2: () => citySleeps,
   },
 });
