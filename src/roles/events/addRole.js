@@ -5,6 +5,7 @@ export default function addRole(role, options = {}) {
   return observable({
     icon: 'person',
     description: i18n.roles[role],
+    validateTarget: (target) => target.role === 'generic',
     valid: (e) => !!e.target,
     resolve(target, game, commit) {
       if (options.beforeResolve) { options.beforeResolve(target, game); }
