@@ -4,16 +4,27 @@ import { DropTarget } from 'react-drag-drop-container';
 import { Grid } from 'semantic-ui-react';
 import Emblem from './emblem';
 import i18n from '../../i18n';
+import setTarget from '../../engine/modules/setTarget';
 
 export default observer(({ player, emblems }) => {
   if (player.state === 'hidden') { return null; }
   return (
-    <DropTarget as="div" className="row" targetKey="emblem" dropData={{ player }}>
+    <DropTarget
+      as="div"
+      className="row"
+      targetKey="emblem"
+      dropData={{ player }}
+      onHit={(e) => setTarget(e.dragData.emblem, player)}
+    >
       <Grid.Column width={11} className={`player player-${player.state}`}>
         { player.name }
         <small style={{ display: 'block' }}>{ i18n.roles[player.role] }</small>
       </Grid.Column>
       <Grid.Column width={5} textAlign="right">
+        {
+          player.emblems
+            .map((e) => <Emblem key={e.type} type="active" icon={e.icon} />)
+        }
         {
           emblems
             .filter((e) => (e.target && e.target.id) === player.id)

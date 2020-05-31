@@ -1,20 +1,13 @@
 import React from 'react';
 import { Label, Icon } from 'semantic-ui-react';
 import { DragDropContainer } from 'react-drag-drop-container';
-import { observer } from 'mobx-react';
 
-export default observer(({ icon, description, emblem }) => (
+export default ({ icon, description, emblem }) => (
   <DragDropContainer
     targetKey="emblem"
     dragData={{ emblem }}
-    onDrop={(e) => {
-      const validateTarget = emblem.validateTarget || ((target) => target.state === 'active');
-      if (validateTarget(e.dropData.player)) {
-        emblem.target = e.dropData.player;
-      }
-    }}
   >
-    <Label>
+    <Label style={{ marginRight: '5px' }}>
       <i
         style={{ marginRight: '5px' }}
         className={`game-icon game-icon-${icon}`}
@@ -31,4 +24,4 @@ export default observer(({ icon, description, emblem }) => (
       }
     </Label>
   </DragDropContainer>
-));
+);

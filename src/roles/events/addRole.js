@@ -1,7 +1,7 @@
 import { observable } from 'mobx';
 import i18n from '../../i18n';
 
-export default function addRole(role, options) {
+export default function addRole(role, options = {}) {
   return observable({
     icon: 'person',
     description: i18n.roles[role],

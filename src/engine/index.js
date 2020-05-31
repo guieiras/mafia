@@ -5,7 +5,8 @@ import Player from './player';
 export default class Engine {
   constructor(recipe, setGameState) {
     this.state = observable({
-      roles: recipe.roles.map(Role),
+      chosenRoles: recipe.roles,
+      roles: [...new Set(recipe.roles)].map(Role),
       players: recipe.players.map(Player),
       action: {},
       stack: [],
