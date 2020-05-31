@@ -9,7 +9,7 @@ export default observer(({ player, emblems }) => {
   if (player.state === 'hidden') { return null; }
   return (
     <DropTarget as="div" className="row" targetKey="emblem" dropData={{ player }}>
-      <Grid.Column width={11}>
+      <Grid.Column width={11} className={`player player-${player.state}`}>
         { player.name }
         <small style={{ display: 'block' }}>{ i18n.roles[player.role] }</small>
       </Grid.Column>

@@ -9,3 +9,7 @@
 .ui.grid > .row.game-actions-wrapper {
   padding: 1em 0 0.5em 0;
 }
+
+.player.player-dead {
+  color: #B03060;
+}
