@@ -1,4 +1,5 @@
 export default ({
+  angelWake: 'Anjo acorda! Escolha um jogador para proteger:',
   assassinWake: 'Assassino acorda! Escolha um jogador para eliminar:',
   assassinWin: 'Vitória da máfia! A cidade foi dominada.',
   discoverNarrator: 'Identifique o Narrador',
