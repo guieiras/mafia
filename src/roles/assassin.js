@@ -46,4 +46,14 @@ export default ({
     t5: () => assassinWake,
     t9: () => assassinKill,
   },
+  win(game) {
+    const livePlayers = game.players.filter((player) => player.state === 'active');
+    const assassinsCount = livePlayers.filter((player) => player.role === 'assassin').length;
+    const playersCount = livePlayers.length;
+
+    if (playersCount < 2) { return assassinsCount > 0; }
+    if (playersCount === 3 && game.clock % 16 === 0) { return assassinsCount > 0; }
+
+    return 2 * assassinsCount >= playersCount;
+  },
 });
