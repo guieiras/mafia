@@ -1,5 +1,6 @@
 import { observable } from 'mobx';
 import i18n from '../i18n';
+import basicWake from './events/basicWake';
 
 function angelWake() {
   return {
@@ -35,7 +36,7 @@ function angelProtect() {
 export default ({
   id: 'angel',
   actions: {
-    t7: () => angelWake,
+    t7: basicWake(angelWake, 'angel'),
     t8: () => angelProtect,
   },
 });
