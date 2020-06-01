@@ -9,5 +9,6 @@ export default ({
   investigationFailed: 'O jogador não é um assassino!',
   investigationSuccess: 'O jogador é um assassino!',
   narratorWin: 'Vitória da cidade! Todos os assassinos foram eliminados.',
+  playerDied: '{role} não está mais na cidade.',
   playerLynch: 'A cidade vota em um jogador que deseja eliminar:',
 });

@@ -14,7 +14,7 @@ export default observer(({ gameState }) => (
       dropData={{ player: null }}
       onHit={(e) => setTarget(e.dragData.emblem, null)}
     >
-      { i18n.actions[gameState.action.name] || gameState.action.name }
+      { gameState.action.name && i18n.t(`actions.${gameState.action.name}`, gameState.action.i18n) }
     </DropTarget>
   </Segment>
 ));
