@@ -8,7 +8,7 @@ function angelWake() {
     emblems: [
       observable({
         icon: 'angel-outfit',
-        description: i18n.emblems.angelBlessed,
+        description: i18n.emblems.angel,
         valid: (e) => !!e.target,
         resolve(target) {
           target.emblems.angel = { icon: 'angel-outfit' };

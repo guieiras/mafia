@@ -11,7 +11,7 @@ function assassinWake(state) {
   }
   emblems.push(observable({
     icon: 'pistol-gun',
-    description: i18n.emblems.assassinKill,
+    description: i18n.emblems.assassin,
     valid: (e) => !!e.target,
     resolve(target, game, commit) {
       target.emblems.assassin = { icon: 'pistol-gun' };
@@ -25,7 +25,7 @@ function assassinWake(state) {
   };
 }
 
-function assassinKill() {
+function assassin() {
   return {
     autoResolve: true,
     resolve(game, commit) {
@@ -44,7 +44,7 @@ export default ({
   id: 'assassin',
   actions: {
     t5: () => assassinWake,
-    t9: () => assassinKill,
+    t9: () => assassin,
   },
   win(game) {
     const livePlayers = game.players.filter((player) => player.state === 'active');
