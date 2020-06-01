@@ -1,5 +1,6 @@
 import { observable } from 'mobx';
 import i18n from '../i18n';
+import basicWake from './events/basicWake';
 
 function detectiveWake() {
   return {
@@ -7,7 +8,7 @@ function detectiveWake() {
     emblems: [
       observable({
         icon: 'sherlock-holmes',
-        description: i18n.emblems.detectiveInvestigated,
+        description: i18n.emblems.detective,
         valid: (e) => !!e.target,
         resolve(target, game, commit) {
           game.stack.unshift(() => ({
@@ -25,6 +26,6 @@ function detectiveWake() {
 export default ({
   id: 'detective',
   actions: {
-    t7: () => detectiveWake,
+    t7: basicWake(detectiveWake, 'detective'),
   },
 });

@@ -1,6 +1,6 @@
 export default ({
   angelBlessed: 'Bênção do Anjo',
   assassinKill: 'Alvo do Assassino',
-  detectiveInvestigated: 'Investigado',
+  detective: 'Investigado',
   lynch: 'Votado',
 });
