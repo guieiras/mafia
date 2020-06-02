@@ -14,7 +14,7 @@ export default function basicWake(fn, role) {
         const resolved = fn(...args);
         if (emblemToAdd) { resolved.emblems.unshift(emblemToAdd); }
         return resolved;
-      }
+      };
     }
 
     return () => ({

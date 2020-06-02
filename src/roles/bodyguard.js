@@ -15,15 +15,14 @@ function bodyguardWake() {
         resolve(target, state, commit) {
           const emblem = target.emblems.assassin;
           if (emblem) {
-            debugger;
             const guard = getPlayerByRole(state.players, 'bodyguard');
             delete target.emblems.assassin;
             guard.emblems.assassin = emblem;
             commit();
           }
         },
-      })
-    ]
+      }),
+    ],
   };
 }
 

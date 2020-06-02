@@ -20,5 +20,5 @@ function t(key, params) {
 
 export default {
   ...ptBr,
-  t
+  t,
 };
