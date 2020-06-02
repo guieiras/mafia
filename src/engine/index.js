@@ -45,7 +45,10 @@ export default class Engine {
       return this.nextTick();
     }
     const action = this.state.stack.splice(0, 1)[0];
-    this.state.action = action(this.state);
+    this.state.action = this.state.roles.reduce((memo, role) => {
+      if (role.actions[memo.name]) { return role.actions[memo.name](memo); }
+      return memo;
+    }, action(this.state));
 
     if (this.state.action.autoResolve) {
       this.commit();
