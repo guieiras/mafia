@@ -46,7 +46,7 @@ export default class Engine {
     }
     const action = this.state.stack.splice(0, 1)[0];
     this.state.action = this.state.roles.reduce((memo, role) => {
-      if (role.actions[memo.name]) { return role.actions[memo.name](memo); }
+      if (role.actions[memo.name]) { return role.actions[memo.name](memo, this.state); }
       return memo;
     }, action(this.state));
 

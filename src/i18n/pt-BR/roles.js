@@ -6,6 +6,7 @@ export default ({
   detective: 'Detetive',
   generic: 'Cidadão',
   hunter: 'Caçador',
+  mafioso: 'Mafioso',
   narrator: 'Narrador',
   suspect: 'Suspeito',
 });
