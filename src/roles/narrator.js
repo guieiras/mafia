@@ -18,12 +18,17 @@ function citySleeps() {
   return {
     name: 'citySleeps',
     emblems: [],
+    resolve(game, commit) {
+      game.events = [];
+      commit();
+    },
   };
 }
 
-function cityWakeup() {
+function cityWakeup(state) {
   return {
     name: 'cityWakeup',
+    events: state.events,
     emblems: [],
   };
 }

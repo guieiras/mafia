@@ -13,3 +13,7 @@
 .player.player-dead {
   color: #B03060;
 }
+
+.ui.bulleted.list.event-list {
+  margin-top: 10px;
+}

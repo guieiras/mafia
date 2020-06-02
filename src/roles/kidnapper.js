@@ -23,6 +23,18 @@ export default ({
   id: 'kidnapper',
   actions: {
     t7: basicWake(kidnapperWake, 'kidnapper'),
+    t11: () => () => ({
+      autoResolve: true,
+      resolve(game, commit) {
+        game.players.forEach((player) => {
+          if (player.emblems.kidnapper && player.state === 'active') {
+            game.events.push(['kidnapper', player]);
+          }
+        });
+
+        commit();
+      },
+    }),
     playerLynch: (event) => {
       const originalEvent = event.emblems[0].resolve;
       event.emblems[0].validateTarget =

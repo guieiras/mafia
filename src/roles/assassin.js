@@ -33,6 +33,7 @@ function assassin() {
       game.players.forEach((player) => {
         if (player.emblems.assassin) {
           delete player.emblems.assassin;
+          game.events.push(['assassin', player]);
           player.state = 'dead';
         }
       });

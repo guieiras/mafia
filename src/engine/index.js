@@ -10,6 +10,7 @@ export default class Engine {
       players: recipe.players.map(Player),
       action: {},
       stack: [],
+      events: [],
       clock: 0,
     });
 
