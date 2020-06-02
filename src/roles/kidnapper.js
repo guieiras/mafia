@@ -37,10 +37,9 @@ export default ({
     }),
     playerLynch: (event) => {
       const originalEvent = event.emblems[0].resolve;
-      event.emblems[0].validateTarget =
-        (target) => target.state === 'active' && !target.emblems.kidnapper;
+      event.emblems[0].validateTarget = (target) => target.state === 'active' && !target.emblems.kidnapper;
       event.emblems[0].resolve = (target, game, commit) => {
-        game.players.forEach(player => {
+        game.players.forEach((player) => {
           delete player.emblems.kidnapper;
         });
         originalEvent(target, game, commit);

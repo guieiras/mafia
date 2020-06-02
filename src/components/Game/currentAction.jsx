@@ -15,18 +15,20 @@ export default observer(({ gameState }) => (
       onHit={(e) => setTarget(e.dragData.emblem, null)}
     >
       { gameState.action.name && i18n.t(`actions.${gameState.action.name}`, gameState.action.i18n) }
-      { gameState.action.events && gameState.action.events.length > 0 && <List bulleted className="event-list">
-        { gameState.action.events.map(([event, target]) => <List.Item key={`event-${target.id}`}>
-          { i18n.reports[event].split('%{target}').map((text) => {
-            if (text === '') {
-              return <b>{target.name}</b>;
-            } else {
+      { gameState.action.events && gameState.action.events.length > 0 && (
+      <List bulleted className="event-list">
+        { gameState.action.events.map(([event, target]) => (
+          <List.Item key={`event-${target.id}`}>
+            { i18n.reports[event].split('%{target}').map((text) => {
+              if (text === '') {
+                return <b>{target.name}</b>;
+              }
               return text;
-            }
-          }) }
-        </List.Item>
-        )}
-      </List>}
+            }) }
+          </List.Item>
+        ))}
+      </List>
+      )}
     </DropTarget>
   </Segment>
 ));
