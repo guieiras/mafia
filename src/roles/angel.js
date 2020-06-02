@@ -26,6 +26,7 @@ function angelProtect() {
         if (player.emblems.angel) {
           delete player.emblems.angel;
           delete player.emblems.assassin;
+          delete player.emblems.kidnapper;
           commit();
         }
       });

@@ -5,5 +5,6 @@ export default ({
   bodyguard: 'Proteção do Guarda-costas',
   detective: 'Investigado',
   hunter: 'Alvo do caçador',
+  kidnapper: 'Sequestrado',
   lynch: 'Votado',
 });

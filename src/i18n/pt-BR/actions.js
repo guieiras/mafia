@@ -12,6 +12,7 @@ export default ({
   identifyRoles: 'Identifique os jogadores com as seguintes cartas: (Obs: você pode pedir para cada um levantar o polegar)',
   investigationFailed: 'O jogador não é um assassino!',
   investigationSuccess: 'O jogador é um assassino!',
+  kidnapperWake: 'Sequestrador acorda! Escolha um jogador para tirar da votação do dia.',
   narratorWin: 'Vitória da cidade! Todos os assassinos foram eliminados.',
   playerDied: '{role} não está mais na cidade.',
   playerLynch: 'A cidade vota em um jogador que deseja eliminar:',
