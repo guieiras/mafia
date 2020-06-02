@@ -3,6 +3,7 @@ export default ({
   assassinWake: 'Assassino acorda! Escolha um jogador para eliminar:',
   assassinWin: 'Vitória da máfia! A cidade foi dominada.',
   bodyguardWake: 'Guarda-costas acorda! Escolha um jogador para proteger com sua vida:',
+  bulletproofWake: 'Vendedor de coletes acorda! Escolha um outro jogador para proteger:',
   discoverNarrator: 'Identifique o Narrador',
   citySleeps: 'Cidade Dorme! Todos os jogadores fecham os olhos.',
   cityWakeup: 'Cidade acorda! Todos os jogadores devem abrir seus olhos.',

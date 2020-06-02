@@ -27,15 +27,16 @@ function assassinWake(state) {
 
 function assassin() {
   return {
+    name: 'assassinKill',
     autoResolve: true,
     resolve(game, commit) {
       game.players.forEach((player) => {
         if (player.emblems.assassin) {
           delete player.emblems.assassin;
           player.state = 'dead';
-          commit();
         }
       });
+      commit();
     },
   };
 }
