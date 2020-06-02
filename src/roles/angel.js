@@ -37,6 +37,6 @@ export default ({
   id: 'angel',
   actions: {
     t7: basicWake(angelWake, 'angel'),
-    t8: () => angelProtect,
+    t9: () => angelProtect,
   },
 });

@@ -44,7 +44,7 @@ export default ({
   id: 'assassin',
   actions: {
     t5: () => assassinWake,
-    t9: () => assassin,
+    t11: () => assassin,
   },
   win(game) {
     const livePlayers = game.players.filter((player) => player.state === 'active');

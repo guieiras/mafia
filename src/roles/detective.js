@@ -9,6 +9,7 @@ function detectiveWake() {
       observable({
         icon: 'sherlock-holmes',
         description: i18n.emblems.detective,
+        validateTarget: (player) => player.role !== 'detective' && player.state === 'active',
         valid: (e) => !!e.target,
         resolve(target, game) {
           game.stack.unshift(() => ({

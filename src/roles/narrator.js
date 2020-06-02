@@ -50,8 +50,8 @@ export default ({
   actions: {
     t1: onDay(0, discoverNarrator),
     t2: () => citySleeps,
-    t11: () => cityWakeup,
-    t12: () => playerLynch,
+    t12: () => cityWakeup,
+    t13: () => playerLynch,
   },
   win(state) {
     const assassins = state.players.filter((player) => player.role === 'assassin');
