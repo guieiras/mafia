@@ -3,6 +3,7 @@ import Assassin from './assassin';
 import Bodyguard from './bodyguard';
 import Detective from './detective';
 import Generic from './generic';
+import Hunter from './hunter';
 import Narrator from './narrator';
 import Suspect from './suspect';
 
@@ -11,6 +12,7 @@ const roles = [
   Assassin,
   Bodyguard,
   Detective,
+  Hunter,
   Narrator,
   Suspect,
 ];

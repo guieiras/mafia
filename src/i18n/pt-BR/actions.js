@@ -7,6 +7,7 @@ export default ({
   citySleeps: 'Cidade Dorme! Todos os jogadores fecham os olhos.',
   cityWakeup: 'Cidade acorda! Todos os jogadores devem abrir seus olhos.',
   detectiveWake: 'Detetive acorda! Escolha um jogador pra investigar:',
+  hunterKill: 'O caçador se vinga do povo! Escolha um jogador para eliminar:',
   identifyRoles: 'Identifique os jogadores com as seguintes cartas: (Obs: você pode pedir para cada um levantar o polegar)',
   investigationFailed: 'O jogador não é um assassino!',
   investigationSuccess: 'O jogador é um assassino!',

@@ -4,6 +4,7 @@ export default ({
   bodyguard: 'Guarda-costas',
   detective: 'Detetive',
   generic: 'Cidadão',
+  hunter: 'Caçador',
   narrator: 'Narrador',
   suspect: 'Suspeito',
 });
