@@ -28,6 +28,13 @@ function cityWakeup() {
   };
 }
 
+function identifyRoles() {
+  return {
+    name: 'identifyRoles',
+    autoResolve: true,
+  };
+}
+
 function playerLynch() {
   return {
     name: 'playerLynch',
@@ -50,6 +57,7 @@ export default ({
   actions: {
     t1: onDay(0, discoverNarrator),
     t2: () => citySleeps,
+    t3: onDay(0, identifyRoles),
     t12: () => cityWakeup,
     t13: () => playerLynch,
   },

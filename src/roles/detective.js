@@ -16,6 +16,7 @@ function detectiveWake() {
             name: ['assassin'].indexOf(target.role) > -1
               ? 'investigationSuccess'
               : 'investigationFailed',
+            target,
             emblems: [],
           }));
         },

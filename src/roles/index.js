@@ -4,6 +4,7 @@ import Bodyguard from './bodyguard';
 import Detective from './detective';
 import Generic from './generic';
 import Narrator from './narrator';
+import Suspect from './suspect';
 
 const roles = [
   Angel,
@@ -11,6 +12,7 @@ const roles = [
   Bodyguard,
   Detective,
   Narrator,
+  Suspect,
 ];
 
 export default function Role(id) {

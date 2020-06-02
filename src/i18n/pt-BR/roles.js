@@ -3,6 +3,7 @@ export default ({
   assassin: 'Assassino',
   bodyguard: 'Guarda-costas',
   detective: 'Detetive',
-  narrator: 'Narrador',
   generic: 'Cidadão',
+  narrator: 'Narrador',
+  suspect: 'Suspeito',
 });
