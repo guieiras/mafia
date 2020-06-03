@@ -4,6 +4,7 @@ export default ({
   bodyguard: 'Guarda-costas',
   bulletproof: 'Vendedor de coletes',
   detective: 'Detetive',
+  emergency: 'Socorrista',
   generic: 'Cidadão',
   hunter: 'Caçador',
   kidnapper: 'Sequestrador',

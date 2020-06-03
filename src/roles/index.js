@@ -3,6 +3,7 @@ import Assassin from './assassin';
 import Bodyguard from './bodyguard';
 import Bulletproof from './bulletproof';
 import Detective from './detective';
+import Emergency from './emergency';
 import Generic from './generic';
 import Hunter from './hunter';
 import Lawyer from './lawyer';
@@ -19,6 +20,7 @@ const roles = [
   Bodyguard,
   Bulletproof,
   Detective,
+  Emergency,
   Hunter,
   Kidnapper,
   Lawyer,

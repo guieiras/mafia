@@ -4,6 +4,7 @@ export default ({
   bulletproof: 'Colete à prova de balas',
   bodyguard: 'Proteção do Guarda-costas',
   detective: 'Investigado',
+  emergency: 'Resgatado',
   hunter: 'Alvo do caçador',
   kidnapper: 'Sequestrado',
   lawyer: 'Cliente',
