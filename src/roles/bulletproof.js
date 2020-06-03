@@ -12,7 +12,7 @@ function bulletproofWake() {
         validateTarget: (player) => player.role !== 'bulletproof' && player.state === 'active',
         valid: (e) => !!e.target,
         resolve(target) {
-          target.emblems.angel = { icon: 'kevlar' };
+          target.emblems.bulletproof = { icon: 'kevlar' };
         },
       }),
     ],
