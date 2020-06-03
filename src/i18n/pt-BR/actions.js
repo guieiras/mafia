@@ -7,7 +7,7 @@ export default ({
   discoverNarrator: 'Identifique o Narrador',
   citySleeps: 'Cidade Dorme! Todos os jogadores fecham os olhos.',
   cityWakeup: 'Cidade acorda! Todos os jogadores devem abrir seus olhos.',
-  detectiveWake: 'Detetive acorda! Escolha um jogador pra investigar:',
+  detectiveWake: 'Detetive acorda! Escolha um outro jogador para investigar:',
   hunterKill: 'O caçador se vinga do povo! Escolha um jogador para eliminar:',
   identifyRoles: 'Identifique os jogadores com as seguintes cartas: (Obs: você pode pedir para cada um levantar o polegar)',
   investigationFailed: 'O jogador não é um assassino!',
@@ -18,5 +18,5 @@ export default ({
   narratorWin: 'Vitória da cidade! Todos os assassinos foram eliminados.',
   playerDied: '{role} não está mais na cidade.',
   playerLynch: 'A cidade vota em um jogador que deseja eliminar:',
-  protectorWake: 'Testemunha acorda! Escolha um outro jogador que não poderá ser votado:',
+  protectorWake: 'Testemunha acorda! Escolha um jogador que não poderá ser votado:',
 });
