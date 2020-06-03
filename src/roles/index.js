@@ -8,6 +8,7 @@ import Hunter from './hunter';
 import Kidnapper from './kidnapper';
 import Mafioso from './mafioso';
 import Narrator from './narrator';
+import Protector from './protector';
 import Suspect from './suspect';
 
 const roles = [
@@ -20,6 +21,7 @@ const roles = [
   Kidnapper,
   Mafioso,
   Narrator,
+  Protector,
   Suspect,
 ];
 

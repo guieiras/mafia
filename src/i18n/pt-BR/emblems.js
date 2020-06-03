@@ -7,4 +7,5 @@ export default ({
   hunter: 'Alvo do caçador',
   kidnapper: 'Sequestrado',
   lynch: 'Votado',
+  protector: 'Álibi verificado',
 });

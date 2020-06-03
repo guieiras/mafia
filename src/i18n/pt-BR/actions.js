@@ -16,4 +16,5 @@ export default ({
   narratorWin: 'Vitória da cidade! Todos os assassinos foram eliminados.',
   playerDied: '{role} não está mais na cidade.',
   playerLynch: 'A cidade vota em um jogador que deseja eliminar:',
+  protectorWake: 'Testemunha acorda! Escolha um outro jogador que não poderá ser votado:',
 });

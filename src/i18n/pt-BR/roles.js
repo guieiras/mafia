@@ -9,5 +9,6 @@ export default ({
   kidnapper: 'Sequestrador',
   mafioso: 'Mafioso',
   narrator: 'Narrador',
+  protector: 'Testemunha do Álibi',
   suspect: 'Suspeito',
 });

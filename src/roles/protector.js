@@ -2,17 +2,16 @@ import { observable } from 'mobx';
 import i18n from '../i18n';
 import basicWake from './events/basicWake';
 
-function kidnapperWake() {
+function protectorWake() {
   return {
-    name: 'kidnapperWake',
+    name: 'protectorWake',
     emblems: [
       observable({
-        icon: 'silenced',
-        description: i18n.emblems.kidnapper,
+        icon: 'book-cover',
+        description: i18n.emblems.protector,
         valid: (e) => !!e.target,
-        validateTarget: (player) => player.role !== 'kidnapper' && player.state === 'active',
         resolve(target) {
-          target.emblems.kidnapper = { icon: 'silenced' };
+          target.emblems.protector = { icon: 'book-cover' };
         },
       }),
     ],
@@ -20,15 +19,15 @@ function kidnapperWake() {
 }
 
 export default ({
-  id: 'kidnapper',
+  id: 'protector',
   actions: {
-    t7: basicWake(kidnapperWake, 'kidnapper'),
+    t7: basicWake(protectorWake, 'protector'),
     t11: () => () => ({
       autoResolve: true,
       resolve(game, commit) {
         game.players.forEach((player) => {
-          if (player.emblems.kidnapper && player.state === 'active') {
-            game.events.push(['kidnapper', player]);
+          if (player.emblems.protector && player.state === 'active') {
+            game.events.push(['protector', player]);
           }
         });
 
@@ -39,11 +38,11 @@ export default ({
       const originalEvent = event.emblems[0].resolve;
       const originalValidator = event.emblems[0].validateTarget;
       event.emblems[0].validateTarget = (target) => (
-        originalValidator(target) && !target.emblems.kidnapper
+        originalValidator(target) && !target.emblems.protector
       );
       event.emblems[0].resolve = (target, game, commit) => {
         game.players.forEach((player) => {
-          delete player.emblems.kidnapper;
+          delete player.emblems.protector;
         });
         originalEvent(target, game, commit);
       };
