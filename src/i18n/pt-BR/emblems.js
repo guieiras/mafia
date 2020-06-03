@@ -6,6 +6,7 @@ export default ({
   detective: 'Investigado',
   hunter: 'Alvo do caçador',
   kidnapper: 'Sequestrado',
+  lawyer: 'Cliente',
   lynch: 'Votado',
   protector: 'Álibi verificado',
 });

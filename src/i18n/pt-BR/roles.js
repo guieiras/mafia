@@ -7,6 +7,7 @@ export default ({
   generic: 'Cidadão',
   hunter: 'Caçador',
   kidnapper: 'Sequestrador',
+  lawyer: 'Advogado',
   mafioso: 'Mafioso',
   narrator: 'Narrador',
   protector: 'Testemunha do Álibi',
