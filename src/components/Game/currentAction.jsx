@@ -19,9 +19,9 @@ export default observer(({ gameState }) => (
       <List bulleted className="event-list">
         { gameState.action.events.map(([event, target]) => (
           <List.Item key={`event-${target.id}`}>
-            { i18n.reports[event].split('%{target}').map((text) => {
+            { i18n.reports[event].split('%{target}').map((text, i) => {
               if (text === '') {
-                return <b>{target.name}</b>;
+                return <b key={i}>{target.name}</b>;
               }
               return text;
             }) }
