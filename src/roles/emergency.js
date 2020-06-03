@@ -23,7 +23,7 @@ export default ({
   id: 'emergency',
   actions: {
     t7: basicWake(emergencyWake, 'emergency'),
-    t13: () => () =>({
+    t13: () => () => ({
       autoResolve: true,
       resolve(game, commit) {
         game.players.forEach((player) => {

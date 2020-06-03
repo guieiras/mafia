@@ -12,10 +12,10 @@ function bodyguardWake() {
         description: i18n.emblems.bodyguard,
         validateTarget: (player) => player.role !== 'bodyguard' && player.state === 'active',
         valid: (e) => !!e.target,
-        resolve(target, state, commit) {
+        resolve(target, game, commit) {
           const emblem = target.emblems.assassin;
           if (emblem) {
-            const guard = getPlayerByRole(state.players, 'bodyguard');
+            const guard = getPlayerByRole(game.players, 'bodyguard');
             delete target.emblems.assassin;
             guard.emblems.assassin = emblem;
             commit();

@@ -25,10 +25,10 @@ function citySleeps() {
   };
 }
 
-function cityWakeup(state) {
+function cityWakeup(game) {
   return {
     name: 'cityWakeup',
-    events: state.events,
+    events: game.events,
     emblems: [],
   };
 }

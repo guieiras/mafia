@@ -2,10 +2,10 @@ import { observable } from 'mobx';
 import i18n from '../i18n';
 import addRole from './events/addRole';
 
-function assassinWake(state) {
+function assassinWake(game) {
   const emblems = [];
-  if (state.clock === 5) {
-    state.chosenRoles.filter((r) => r === 'assassin').forEach(() => {
+  if (game.clock === 5) {
+    game.chosenRoles.filter((r) => r === 'assassin').forEach(() => {
       emblems.push(addRole('assassin'));
     });
   }
@@ -13,7 +13,7 @@ function assassinWake(state) {
     icon: 'pistol-gun',
     description: i18n.emblems.assassin,
     valid: (e) => !!e.target,
-    resolve(target, game, commit) {
+    resolve(target, _game, commit) {
       target.emblems.assassin = { icon: 'pistol-gun' };
       commit();
     },
