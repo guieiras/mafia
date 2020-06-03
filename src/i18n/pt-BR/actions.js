@@ -14,6 +14,7 @@ export default ({
   investigationSuccess: 'O jogador é um assassino!',
   kidnapperWake: 'Sequestrador acorda! Escolha um jogador para tirar da votação do dia.',
   lawyerWake: 'Advogado acorda! Escolha um jogador para defender.',
+  milicianWake: 'Policial infiltrado acorda! (Aponte o jogador investigado pelo detetive)',
   narratorWin: 'Vitória da cidade! Todos os assassinos foram eliminados.',
   playerDied: '{role} não está mais na cidade.',
   playerLynch: 'A cidade vota em um jogador que deseja eliminar:',

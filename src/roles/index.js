@@ -8,6 +8,7 @@ import Hunter from './hunter';
 import Lawyer from './lawyer';
 import Kidnapper from './kidnapper';
 import Mafioso from './mafioso';
+import Milician from './milician';
 import Narrator from './narrator';
 import Protector from './protector';
 import Suspect from './suspect';
@@ -22,6 +23,7 @@ const roles = [
   Kidnapper,
   Lawyer,
   Mafioso,
+  Milician,
   Narrator,
   Protector,
   Suspect,
