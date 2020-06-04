@@ -9,6 +9,8 @@ export default ({
   cityWakeup: 'Cidade acorda! Todos os jogadores devem abrir seus olhos.',
   detectiveWake: 'Detetive acorda! Escolha um outro jogador para investigar:',
   emergencyWake: 'Socorrista acorda! Escolha um outro jogador para socorrer:',
+  gangstersWake: 'Gangsters, abram os olhos e se reconheçam!',
+  gangsterWin: 'Apenas um Gangster sobreviveu! A gangue dominou a cidade e derrubou a máfia.',
   hunterKill: 'O caçador se vinga do povo! Escolha um jogador para eliminar:',
   identifyRoles: 'Identifique os jogadores com as seguintes cartas: (Obs: você pode pedir para cada um levantar o polegar)',
   investigationFailed: 'O jogador não é um assassino!',
