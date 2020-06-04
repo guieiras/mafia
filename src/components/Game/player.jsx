@@ -24,6 +24,7 @@ export default observer(({ player, emblems }) => {
         {
           Object
             .keys(player.emblems)
+            .filter((e) => typeof player.emblems[e] === 'object')
             .map((e) => <Emblem key={e} type="active" icon={player.emblems[e].icon} />)
         }
         {

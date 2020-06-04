@@ -5,6 +5,7 @@ export default ({
   bulletproof: 'Vendedor de coletes',
   detective: 'Detetive',
   emergency: 'Socorrista',
+  fool: 'Louco',
   gangster: 'Gangster',
   generic: 'Cidadão',
   hunter: 'Caçador',
