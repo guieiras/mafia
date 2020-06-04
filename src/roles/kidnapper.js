@@ -10,7 +10,6 @@ function kidnapperWake() {
         icon: 'silenced',
         description: i18n.emblems.kidnapper,
         valid: (e) => !!e.target,
-        validateTarget: (player) => player.role !== 'kidnapper' && player.state === 'active',
         resolve(target) {
           target.emblems.kidnapper = { icon: 'silenced' };
         },
