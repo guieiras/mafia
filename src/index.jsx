@@ -7,12 +7,14 @@ import './assets/game-icons/game-icons.css';
 import './index.css';
 
 import Game from './pages/Game';
+import Menu from './pages/Menu';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Game path=":gameId" />
+      <Menu path="/" />
+      <Game path="/games/:gameId" />
     </Router>
   </React.StrictMode>,
   document.getElementById('root'),

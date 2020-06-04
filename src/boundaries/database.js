@@ -4,6 +4,7 @@ const db = new Dexie('mafia-moderator');
 
 db.version(1).stores({
   games: 'id',
+  groups: 'id',
 });
 
 export default db;
