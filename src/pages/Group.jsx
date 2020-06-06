@@ -1,8 +1,10 @@
 
 import React from 'react';
 import { Redirect } from '@reach/router';
-import { Card, List, Input, Button } from 'semantic-ui-react';
-import { v1 as uuidV1 } from 'uuid';
+import {
+  Card, List, Input, Button,
+} from 'semantic-ui-react';
+import { v4 as uuidV4 } from 'uuid';
 import Layout from './Layout';
 import db from '../boundaries/database';
 
@@ -18,7 +20,10 @@ export default function Group({ groupId }) {
 
   function addPlayer() {
     const clone = { ...group };
-    clone.players.push({ id: uuidV1(), name: newPlayerName });
+    clone.players.push({
+      id: uuidV4(),
+      name: newPlayerName,
+    });
     db.groups.update(groupId, clone);
     setUpdateTime(new Date());
     setNewPlayerName('');

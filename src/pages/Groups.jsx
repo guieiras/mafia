@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import { Card, List, Input } from 'semantic-ui-react';
-import { v1 as uuidV1 } from 'uuid';
+import { v4 as uuidV4 } from 'uuid';
 import Layout from './Layout';
 import db from '../boundaries/database';
 
@@ -16,7 +16,12 @@ export default function Groups() {
   }, [updateTime]);
 
   function addGroup() {
-    db.groups.add({ id: uuidV1(), name: newGroupName, players: [] });
+    if (!newGroupName) { return; }
+    db.groups.add({
+      id: uuidV4(),
+      name: newGroupName,
+      players: [],
+    });
     setUpdateTime(new Date());
     setNewGroupName('');
   }
