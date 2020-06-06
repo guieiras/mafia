@@ -10,12 +10,14 @@ import Game from './pages/Game';
 import Groups from './pages/Groups';
 import Group from './pages/Group';
 import Menu from './pages/Menu';
+import NewGame from './pages/NewGame';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Menu path="/" />
+      <NewGame path="/new" />
       <Groups path="/groups" />
       <Group path="/groups/:groupId" />
       <Game path="/games/:gameId" />
