@@ -21,3 +21,12 @@
 .menu-title {
   margin-right: 5px;
 }
+
+.group-players-card__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ui.card.group-players-card >.content.group-players-card__content::after {
+  content: none;
+}
