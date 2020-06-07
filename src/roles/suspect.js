@@ -2,6 +2,8 @@ import appendRoleDiscover from './events/appendRoleDiscover';
 
 export default ({
   id: 'suspect',
+  icon: 'handcuffed',
+  team: 'city',
   actions: {
     identifyRoles: appendRoleDiscover('suspect'),
     investigationFailed: (event) => {

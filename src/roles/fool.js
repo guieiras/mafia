@@ -2,6 +2,8 @@ import appendRoleDiscover from './events/appendRoleDiscover';
 
 export default ({
   id: 'fool',
+  icon: 'suicide',
+  team: 'neutral',
   actions: {
     identifyRoles: appendRoleDiscover('fool'),
     playerLynch: (event) => {

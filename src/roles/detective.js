@@ -27,6 +27,8 @@ function detectiveWake() {
 
 export default ({
   id: 'detective',
+  icon: 'sherlock-holmes',
+  team: 'city',
   actions: {
     t7: basicWake(detectiveWake, 'detective'),
   },

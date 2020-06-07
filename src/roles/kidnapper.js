@@ -20,6 +20,8 @@ function kidnapperWake() {
 
 export default ({
   id: 'kidnapper',
+  icon: 'robber-mask',
+  team: 'mafia',
   actions: {
     t7: basicWake(kidnapperWake, 'kidnapper'),
     t11: () => () => ({

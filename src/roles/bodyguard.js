@@ -28,6 +28,8 @@ function bodyguardWake() {
 
 export default ({
   id: 'bodyguard',
+  icon: 'static-guard',
+  team: 'city',
   actions: {
     t7: basicWake(bodyguardWake, 'bodyguard'),
   },

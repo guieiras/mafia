@@ -25,6 +25,8 @@ function removeEmblem(game) {
 
 export default ({
   id: 'lawyer',
+  icon: 'suitcase',
+  team: 'mafia',
   actions: {
     t7: basicWake(lawyerWake, 'lawyer'),
     investigationSuccess: (event, game) => {

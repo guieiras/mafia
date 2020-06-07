@@ -44,6 +44,8 @@ function assassin() {
 
 export default ({
   id: 'assassin',
+  icon: 'pistol-gun',
+  team: 'mafia',
   actions: {
     t5: () => assassinWake,
     t11: () => assassin,

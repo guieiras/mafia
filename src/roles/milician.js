@@ -16,6 +16,8 @@ function milicianWake(game) {
 
 export default ({
   id: 'milician',
+  icon: 'police-officer-head',
+  team: 'mafia',
   actions: {
     t7: basicWake(milicianWake, 'milician'),
     investigationSuccess: (event) => {

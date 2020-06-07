@@ -60,6 +60,8 @@ function playerLynch() {
 
 export default ({
   id: 'narrator',
+  icon: 'chess-king',
+  team: 'narrator',
   actions: {
     t1: onDay(0, discoverNarrator),
     t2: () => citySleeps,

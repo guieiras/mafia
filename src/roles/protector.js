@@ -20,6 +20,8 @@ function protectorWake() {
 
 export default ({
   id: 'protector',
+  icon: 'book-cover',
+  team: 'city',
   actions: {
     t7: basicWake(protectorWake, 'protector'),
     t11: () => () => ({

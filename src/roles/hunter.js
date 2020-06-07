@@ -21,6 +21,8 @@ function hunterKill() {
 
 export default ({
   id: 'hunter',
+  icon: 'sawed-off-shotgun',
+  team: 'city',
   actions: {
     identifyRoles: appendRoleDiscover('hunter'),
     playerLynch: (event) => {

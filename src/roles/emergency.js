@@ -21,6 +21,8 @@ function emergencyWake() {
 
 export default ({
   id: 'emergency',
+  icon: 'medical-pack',
+  team: 'city',
   actions: {
     t7: basicWake(emergencyWake, 'emergency'),
     t13: () => () => ({

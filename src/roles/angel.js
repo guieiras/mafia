@@ -36,6 +36,8 @@ function angelProtect() {
 
 export default ({
   id: 'angel',
+  icon: 'angel-outfit',
+  team: 'city',
   actions: {
     t7: basicWake(angelWake, 'angel'),
     t9: () => angelProtect,

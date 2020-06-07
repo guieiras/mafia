@@ -21,6 +21,8 @@ function bulletproofWake() {
 
 export default ({
   id: 'bulletproof',
+  icon: 'kevlar',
+  team: 'city',
   actions: {
     t7: basicWake(bulletproofWake, 'bulletproof'),
     assassinKill: (event) => {

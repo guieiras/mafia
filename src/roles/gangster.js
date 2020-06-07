@@ -3,6 +3,8 @@ import onDay from './events/onDay';
 
 export default ({
   id: 'gangster',
+  icon: 'baseball-bat',
+  team: 'neutral',
   actions: {
     t4: onDay(0, (game) => appendRoleDiscover('gangster')({
       name: 'gangstersWake',
