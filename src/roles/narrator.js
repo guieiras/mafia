@@ -45,7 +45,7 @@ function playerLynch() {
     name: 'playerLynch',
     emblems: [
       observable({
-        icon: 'guillotine',
+        icon: 'suicide',
         description: i18n.emblems.lynch,
         validateTarget: (player) => player.state === 'active',
         valid: () => true,
