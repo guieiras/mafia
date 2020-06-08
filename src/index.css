@@ -27,6 +27,20 @@
   justify-content: space-between;
 }
 
-.ui.card.group-players-card >.content.group-players-card__content::after {
+.ui.card.group-players-card > .content.group-players-card__content::after {
   content: none;
+}
+
+.list-group-players {
+  font-size: smaller;
+}
+
+.list-roles {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-roles > .label {
+  margin-right: 5px;
+  margin-bottom: 5px;
 }

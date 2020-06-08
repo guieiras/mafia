@@ -1,20 +1,31 @@
 
 import React from 'react';
-import { Redirect } from '@reach/router';
-import { Card, List, Input } from 'semantic-ui-react';
+import { useNavigate } from '@reach/router';
+import {
+  Card, List, Input, Button,
+} from 'semantic-ui-react';
 import { v4 as uuidV4 } from 'uuid';
 import Layout from './Layout';
 import db from '../boundaries/database';
 import Check from '../components/check';
+import { RoleLibrary, libraryToGameRecipe } from '../roles';
+import i18n from '../i18n';
+import RoleSelector from '../components/NewGame/RoleSelector';
 
 export default function NewGame() {
   const [groups, setGroups] = React.useState([]);
   const [players, setPlayers] = React.useState({});
-  const [roles, setRoles] = React.useState([]);
+  const [roles, setRoles] = React.useState({});
   const [newPlayerName, setNewPlayerName] = React.useState('');
-  const [redirect, setRedirect] = React.useState(null);
+  const navigate = useNavigate();
 
-  React.useEffect(() => { db.groups.toArray().then(setGroups); }, []);
+  React.useEffect(() => {
+    db.groups.toArray().then(setGroups);
+    setRoles(RoleLibrary.reduce((memo, [role, options]) => ({
+      ...memo,
+      [role.id]: options.force ? 1 : 0,
+    }), {}));
+  }, []);
 
   function toggleVisibility(groupId) {
     const clone = [...groups];
@@ -34,11 +45,27 @@ export default function NewGame() {
     setPlayers({ ...players, ...newPlayers });
   }
 
-
   function removePlayers(...indexes) {
     const clone = { ...players };
     indexes.forEach((index) => { delete clone[index]; });
     setPlayers(clone);
+  }
+
+  function hasEnoughRoles() {
+    return (
+      Object.values(roles).reduce((a, b) => a + b, 0)
+        >= Object.keys(players).length
+    );
+  }
+
+  function createGame() {
+    db.games.add({
+      id: uuidV4(),
+      players: Object.values(players),
+      roles: libraryToGameRecipe(roles),
+    }).then((e) => {
+      navigate(`/games/${e}`);
+    });
   }
 
   return (
@@ -63,6 +90,13 @@ export default function NewGame() {
                   />
                   <List.Content onClick={() => toggleVisibility(group.id)} key={group.id}>
                     <List.Header>{group.name}</List.Header>
+                    {
+                      !group.visible && (
+                        <List.Description className="list-group-players">
+                          { group.players.map((player) => player.name).join(', ') }
+                        </List.Description>
+                      )
+                    }
                   </List.Content>
                 </List.Item>,
                 group.visible && group.players.map((player) => (
@@ -110,8 +144,32 @@ export default function NewGame() {
         <Card.Content>
           <Card.Header>Cidade</Card.Header>
         </Card.Content>
+        <Card.Content className="list-roles">
+          {
+            RoleLibrary.reduce((memo, [role, options]) => [...memo,
+              ...new Array(options.amount).fill(null).map((_e, index) => (
+                <RoleSelector
+                  key={`${role.id}${index}`}
+                  text={i18n.roles[role.id]}
+                  icon={role.icon}
+                  lockCheck={hasEnoughRoles()}
+                  lockUncheck={roles[role.id] <= options.force}
+                  checked={roles[role.id] > index}
+                  onCheck={() => setRoles({ ...roles, [role.id]: roles[role.id] + 1 })}
+                  onUncheck={() => setRoles({ ...roles, [role.id]: roles[role.id] - 1 })}
+                />
+              )),
+            ], [])
+          }
+        </Card.Content>
       </Card>
-      { redirect && <Redirect to={`/games/${redirect}`} />}
+      <Button
+        fluid
+        color="green"
+        content="Iniciar jogo"
+        disabled={Object.keys(players).length < 6}
+        onClick={createGame}
+      />
     </Layout>
   );
 }
