@@ -53,7 +53,7 @@ export default function NewGame() {
 
   function hasEnoughRoles() {
     return (
-      Object.values(roles).reduce((a, b) => a + b, 0)
+      Object.values(roles).reduce((a, b) => a + b, 1)
         >= Object.keys(players).length
     );
   }
@@ -167,7 +167,7 @@ export default function NewGame() {
         fluid
         color="green"
         content="Iniciar jogo"
-        disabled={Object.keys(players).length < 6}
+        disabled={Object.keys(players).length < 5}
         onClick={createGame}
       />
     </Layout>

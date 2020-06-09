@@ -10,11 +10,11 @@ import RoleSelector from '../components/NewGame/RoleSelector';
 import i18n from '../i18n';
 
 export default function Setups() {
-  const initialRoles = { narrator: 1, assassin: 1 };
+  const initialRoles = { assassin: 1 };
   const [setups, setSetups] = React.useState([]);
   const [updateTime, setUpdateTime] = React.useState(new Date());
   const [newSetupName, setNewSetupName] = React.useState('');
-  const [newSetupPlayers, setNewSetupPlayers] = React.useState(6);
+  const [newSetupPlayers, setNewSetupPlayers] = React.useState(5);
   const [newSetupRoles, setNewSetupRoles] = React.useState(initialRoles);
 
   React.useEffect(() => {
@@ -32,16 +32,31 @@ export default function Setups() {
       setUpdateTime(new Date());
       setNewSetupName('');
       setNewSetupRoles(initialRoles);
-      setNewSetupPlayers(6);
+      setNewSetupPlayers(5);
     });
   }
 
+  function roleSum() {
+    return Object.values(newSetupRoles).reduce((a, b) => a + b);
+  }
+
   function handleMinus() {
-    setNewSetupPlayers(newSetupPlayers === 6 ? 6 : newSetupPlayers - 1);
+    if (newSetupPlayers > roleSum()) {
+      setNewSetupPlayers(newSetupPlayers === 5 ? 5 : newSetupPlayers - 1);
+    }
   }
 
   function handlePlus() {
     setNewSetupPlayers(newSetupPlayers + 1);
+  }
+
+  function addRole(roleId) {
+    setNewSetupRoles({ ...newSetupRoles, [roleId]: (newSetupRoles[roleId] || 0) + 1 });
+    if (roleSum() >= newSetupPlayers) { setNewSetupPlayers(roleSum() + 1); }
+  }
+
+  function removeRole(roleId) {
+    setNewSetupRoles({ ...newSetupRoles, [roleId]: newSetupRoles[roleId] - 1 });
   }
 
   function removeSetup(setupId) {
@@ -142,16 +157,8 @@ export default function Setups() {
                     icon={role.icon}
                     checked={newSetupRoles[role.id] > index}
                     lockUncheck={newSetupRoles[role.id] <= options.force}
-                    onCheck={
-                      () => setNewSetupRoles(
-                        { ...newSetupRoles, [role.id]: (newSetupRoles[role.id] || 0) + 1 },
-                      )
-                    }
-                    onUncheck={
-                      () => setNewSetupRoles(
-                        { ...newSetupRoles, [role.id]: newSetupRoles[role.id] - 1 },
-                      )
-                    }
+                    onCheck={() => addRole(role.id)}
+                    onUncheck={() => removeRole(role.id)}
                   />
                 )),
               ], [])
