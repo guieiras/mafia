@@ -69,3 +69,11 @@
 .new-setup > * {
   margin-bottom: 10px;
 }
+
+.ui.list > .item.setup-list-item {
+  display: flex;
+}
+
+.setup-list-item > .ui.button {
+  margin-left: auto;
+}

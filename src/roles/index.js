@@ -15,6 +15,7 @@ import Milician from './milician';
 import Narrator from './narrator';
 import Protector from './protector';
 import Suspect from './suspect';
+import i18n from '../i18n';
 
 const roles = [
   Angel,
@@ -61,6 +62,70 @@ export function libraryToGameRecipe(selectedRoles) {
   return [...RoleLibrary]
     .sort((a, b) => ((a[1].index > b[1].index) ? 1 : -1))
     .reduce((memo, [role]) => [
-      ...memo, ...new Array(selectedRoles[role.id]).fill(role.id)
+      ...memo, ...new Array(selectedRoles[role.id]).fill(role.id),
     ], ['narrator']);
+}
+
+export function defaultSetups() {
+  return [
+    {
+      id: 'standard',
+      name: i18n.t('setups.standard'),
+      players: 5,
+      roles: { assassin: 1, angel: 1, detective: 1 },
+    },
+    {
+      id: 'standard',
+      name: i18n.t('setups.standard'),
+      players: 6,
+      roles: { assassin: 1, angel: 1, detective: 1 },
+    },
+    {
+      id: 'standard',
+      name: i18n.t('setups.standard'),
+      players: 7,
+      roles: {
+        assassin: 1, angel: 1, detective: 1, bodyguard: 1,
+      },
+    },
+    {
+      id: 'standard',
+      name: i18n.t('setups.standard'),
+      players: 8,
+      roles: {
+        assassin: 2, angel: 1, detective: 1, bodyguard: 1,
+      },
+    },
+    {
+      id: 'standard',
+      name: i18n.t('setups.standard'),
+      players: 9,
+      roles: {
+        assassin: 2, angel: 1, detective: 1, bodyguard: 1, bulletproof: 1,
+      },
+    },
+    {
+      id: 'standard',
+      name: i18n.t('setups.standard'),
+      players: 10,
+      roles: {
+        assassin: 2, kidnapper: 1, angel: 1, detective: 1, bodyguard: 1, bulletproof: 1,
+      },
+    },
+    {
+      id: 'competitive',
+      name: i18n.t('setups.competitive'),
+      players: 10,
+      roles: {
+        assassin: 2,
+        mafioso: 2,
+        kidnapper: 1,
+        angel: 1,
+        detective: 1,
+        bodyguard: 1,
+        bulletproof: 1,
+        hunter: 1,
+      },
+    },
+  ];
 }

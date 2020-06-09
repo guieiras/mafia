@@ -8,7 +8,7 @@ import { v4 as uuidV4 } from 'uuid';
 import Layout from './Layout';
 import db from '../boundaries/database';
 import Check from '../components/check';
-import { RoleLibrary, libraryToGameRecipe } from '../roles';
+import { RoleLibrary, libraryToGameRecipe, defaultSetups } from '../roles';
 import i18n from '../i18n';
 import RoleSelector from '../components/NewGame/RoleSelector';
 
@@ -16,11 +16,15 @@ export default function NewGame() {
   const [groups, setGroups] = React.useState([]);
   const [players, setPlayers] = React.useState({});
   const [roles, setRoles] = React.useState({});
+  const [setups, setSetups] = React.useState([]);
   const [newPlayerName, setNewPlayerName] = React.useState('');
   const navigate = useNavigate();
 
   React.useEffect(() => {
     db.groups.toArray().then(setGroups);
+    db.setups.toArray().then((dbSetups) => {
+      setSetups([...defaultSetups(), ...dbSetups]);
+    });
     setRoles(RoleLibrary.reduce((memo, [role, options]) => ({
       ...memo,
       [role.id]: options.force ? 1 : 0,
@@ -51,6 +55,10 @@ export default function NewGame() {
     setPlayers(clone);
   }
 
+  function availableSetups() {
+    return setups.filter((setup) => setup.players === Object.keys(players).length - 1);
+  }
+
   function hasEnoughRoles() {
     return (
       Object.values(roles).reduce((a, b) => a + b, 1)
@@ -58,11 +66,11 @@ export default function NewGame() {
     );
   }
 
-  function createGame() {
+  function createGame(recipeRoles) {
     db.games.add({
       id: uuidV4(),
       players: Object.values(players),
-      roles: libraryToGameRecipe(roles),
+      roles: libraryToGameRecipe(recipeRoles),
     }).then((e) => {
       navigate(`/games/${e}`);
     });
@@ -140,9 +148,43 @@ export default function NewGame() {
           </List>
         </Card.Content>
       </Card>
+      {
+        availableSetups().length > 0 && (
+          <Card fluid>
+            <Card.Content>
+              <Card.Header>Usar predefinição</Card.Header>
+            </Card.Content>
+            <Card.Content>
+              <List>
+                {
+                  availableSetups().map((setup) => (
+                    <List.Item key={setup.id} className="setup-list-item">
+                      <List.Content>
+                        <List.Header>{setup.name}</List.Header>
+                        <List.Description>
+                          {Object.keys(setup.roles).reduce((memo, role) => [
+                            ...memo,
+                            ...[
+                              setup.roles[role] > 0
+                                ? `${setup.roles[role] > 1 ? `${setup.roles[role]}x ` : ''} ${i18n.roles[role]}`
+                                : [],
+                            ],
+                          ], []).join(', ')}
+                        </List.Description>
+                      </List.Content>
+                      <Button color="green" content="Jogar" onClick={() => { createGame(setup.roles); }} />
+                    </List.Item>
+                  ))
+                }
+              </List>
+            </Card.Content>
+          </Card>
+        )
+      }
+
       <Card fluid>
         <Card.Content>
-          <Card.Header>Cidade</Card.Header>
+          <Card.Header>Definir cidade</Card.Header>
         </Card.Content>
         <Card.Content className="list-roles">
           {
@@ -161,15 +203,15 @@ export default function NewGame() {
               )),
             ], [])
           }
+          <Button
+            fluid
+            color="green"
+            content="Iniciar jogo"
+            disabled={Object.keys(players).length < 5}
+            onClick={() => { createGame(roles); }}
+          />
         </Card.Content>
       </Card>
-      <Button
-        fluid
-        color="green"
-        content="Iniciar jogo"
-        disabled={Object.keys(players).length < 5}
-        onClick={createGame}
-      />
     </Layout>
   );
 }
