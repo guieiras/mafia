@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-  Card, List, Input, Button, Label,
+  Card, Input, Button, Label, Table,
 } from 'semantic-ui-react';
 import { v4 as uuidV4 } from 'uuid';
 import Layout from './Layout';
 import db from '../boundaries/database';
-import { RoleLibrary } from '../roles';
+import Role, { RoleLibrary } from '../roles';
 import RoleSelector from '../components/NewGame/RoleSelector';
 import i18n from '../i18n';
 
@@ -58,18 +58,58 @@ export default function Setups() {
         </Card.Content>
         <Card.Content>
           { setups.length ? (
-            <List divided relaxed>
-              {
-            setups.map((setup) => (
-              <List.Item key={setup.id}>
-                <List.Content className="setup-players-card__content">
-                  <span>{setup.name}</span>
-                  <Button icon="delete" onClick={() => { removeSetup(setup.id); }} />
-                </List.Content>
-              </List.Item>
-            ))
-          }
-            </List>
+            <Table celled>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Nome</Table.HeaderCell>
+                  <Table.HeaderCell>Jogadores</Table.HeaderCell>
+                  <Table.HeaderCell>Cidade</Table.HeaderCell>
+                  <Table.HeaderCell>Ações</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+
+              <Table.Body>
+                {
+                  setups.map((setup) => (
+                    <Table.Row key={setup.id}>
+                      <Table.Cell>{setup.name}</Table.Cell>
+                      <Table.Cell>{setup.players}</Table.Cell>
+                      <Table.Cell>
+                        { Object.keys(setup.roles).reduce((memo, role) => [
+                          ...memo, ...new Array(
+                            setup.roles[role],
+                          ).fill(null).map(() => {
+                            const roleObject = Role(role);
+                            let color;
+                            switch (roleObject.team) {
+                              case 'city':
+                                color = 'blue';
+                                break;
+                              case 'mafia':
+                                color = 'red';
+                                break;
+                              case 'neutral':
+                                color = 'yellow';
+                                break;
+                              default:
+                                color = 'teal';
+                            }
+                            return (
+                              <Label circle color={color}>
+                                <i className={`game-icon game-icon-${roleObject.icon}`} />
+                              </Label>
+                            );
+                          }),
+                        ], [])}
+                      </Table.Cell>
+                      <Table.Cell>
+                        <Button icon="delete" color="red" onClick={() => { removeSetup(setup.id); }} />
+                      </Table.Cell>
+                    </Table.Row>
+                  ))
+                }
+              </Table.Body>
+            </Table>
           ) : <Card.Description>Nenhum configuração adicionada</Card.Description> }
         </Card.Content>
       </Card>
