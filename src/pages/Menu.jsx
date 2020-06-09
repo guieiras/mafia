@@ -20,8 +20,8 @@ export default function Home() {
             <Link className="item" to="/setups" rel="listitem">
               <List.Icon name="block layout" size="large" verticalAlign="middle" />
               <List.Content>
-                <List.Header>Carregar jogo pré-existente</List.Header>
-                <List.Description>Carrega um jogo existente</List.Description>
+                <List.Header>Predefinições de Jogo</List.Header>
+                <List.Description>Gerencia as predefinições</List.Description>
               </List.Content>
             </Link>
             <Link className="item" to="/groups" rel="listitem">

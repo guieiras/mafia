@@ -11,6 +11,7 @@ import Groups from './pages/Groups';
 import Group from './pages/Group';
 import Menu from './pages/Menu';
 import NewGame from './pages/NewGame';
+import Setups from './pages/Setups';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -18,6 +19,7 @@ ReactDOM.render(
     <Router>
       <Menu path="/" />
       <NewGame path="/new" />
+      <Setups path="/setups" />
       <Groups path="/groups" />
       <Group path="/groups/:groupId" />
       <Game path="/games/:gameId" />
