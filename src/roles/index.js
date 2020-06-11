@@ -62,7 +62,7 @@ export function libraryToGameRecipe(selectedRoles) {
   return [...RoleLibrary]
     .sort((a, b) => ((a[1].index > b[1].index) ? 1 : -1))
     .reduce((memo, [role]) => [
-      ...memo, ...new Array(selectedRoles[role.id]).fill(role.id),
+      ...memo, ...new Array(selectedRoles[role.id] || 0).fill(role.id),
     ], ['narrator']);
 }
 
