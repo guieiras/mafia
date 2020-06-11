@@ -1,5 +1,6 @@
 import React from 'react';
 import { Label } from 'semantic-ui-react';
+import GameIcon from '../gameIcon';
 
 export default function RoleSelector({
   text, icon, lockCheck, lockUncheck, checked, onCheck, onUncheck,
@@ -18,7 +19,7 @@ export default function RoleSelector({
       color={checked ? 'green' : null}
       onClick={handleClick}
     >
-      <i style={{ marginRight: '5px' }} className={`icon game-icon game-icon-${icon}`} />
+      <GameIcon style={{ marginRight: '5px' }} icon={icon} />
       {text}
     </Label>
   );

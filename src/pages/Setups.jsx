@@ -6,6 +6,7 @@ import { v4 as uuidV4 } from 'uuid';
 import Layout from './Layout';
 import db from '../boundaries/database';
 import Role, { RoleLibrary } from '../roles';
+import GameIcon from '../components/gameIcon';
 import RoleSelector from '../components/NewGame/RoleSelector';
 import i18n from '../i18n';
 
@@ -111,7 +112,7 @@ export default function Setups() {
                             }
                             return (
                               <Label circle color={color}>
-                                <i className={`game-icon game-icon-${roleObject.icon}`} />
+                                <GameIcon icon={roleObject.icon} />
                               </Label>
                             );
                           }),

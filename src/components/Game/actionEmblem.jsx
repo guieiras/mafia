@@ -1,6 +1,7 @@
 import React from 'react';
 import { Label, Icon } from 'semantic-ui-react';
 import { DragDropContainer } from 'react-drag-drop-container';
+import GameIcon from '../gameIcon';
 
 export default ({ icon, description, emblem }) => (
   <DragDropContainer
@@ -8,10 +9,7 @@ export default ({ icon, description, emblem }) => (
     dragData={{ emblem }}
   >
     <Label style={{ marginRight: '5px' }}>
-      <i
-        style={{ marginRight: '5px' }}
-        className={`game-icon game-icon-${icon}`}
-      />
+      <GameIcon icon={icon} style={{ marginRight: '5px' }} />
       { description }
       {
         emblem.valid(emblem)

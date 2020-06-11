@@ -8,7 +8,6 @@ export default function Layout({ children }) {
       <Menu fixed="top" inverted>
         <Container>
           <Link to="/" className="header item">
-            <i className="game-icon game-icon-alarm-clock menu-title" />
             Cidade Dorme
           </Link>
         </Container>
