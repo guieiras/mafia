@@ -77,3 +77,11 @@
 .setup-list-item > .ui.button {
   margin-left: auto;
 }
+
+.ui.button.win-action-button {
+  margin-bottom: 5px;
+}
+
+.ui.button.win-action-button:first-child {
+  margin-top: 5px;
+}
