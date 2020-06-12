@@ -8,6 +8,9 @@
         "airbnb"
     ],
     "rules": {
+        "react/jsx-props-no-spreading": ["error", {
+            "html": "ignore"
+        }],
         "react/no-array-index-key": "off",
         "react/prop-types": "off",
         "no-param-reassign": "off"
