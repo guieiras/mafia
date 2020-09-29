@@ -20,7 +20,7 @@ export default class Engine {
   }
 
   nextTick() {
-    this.state.clock = this.state.clock + 1;
+    this.state.clock += 1;
     this.state.roles.forEach((role) => {
       const timeAction = this.currentTimeAction(role);
       if (timeAction) {

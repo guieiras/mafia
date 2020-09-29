@@ -17,7 +17,6 @@ function t(key, params) {
   }, translation);
 }
 
-
 export default {
   ...ptBr,
   t,
