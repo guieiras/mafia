@@ -16,7 +16,7 @@ export default function Game({ gameId }) {
   );
   function bindEngine(dbGame) { engine.current = new Engine(dbGame, setGameState); }
   function fetchGame() { db.games.get({ id: gameId }).then(bindEngine); }
-  function redirectBack() { navigate('/games/new'); }
+  function redirectBack() { navigate('/new'); }
 
   React.useEffect(() => { fetchGame(); }, [gameId]);
 
