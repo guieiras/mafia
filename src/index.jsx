@@ -15,16 +15,14 @@ import Setups from './pages/Setups';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <Menu path="/" />
-      <NewGame path="/new" />
-      <Setups path="/setups" />
-      <Groups path="/groups" />
-      <Group path="/groups/:groupId" />
-      <Game path="/games/:gameId" />
-    </Router>
-  </React.StrictMode>,
+  <Router>
+    <Menu path="/" />
+    <NewGame path="/new" />
+    <Setups path="/setups" />
+    <Groups path="/groups" />
+    <Group path="/groups/:groupId" />
+    <Game path="/games/:gameId" />
+  </Router>,
   document.getElementById('root'),
 );
 
