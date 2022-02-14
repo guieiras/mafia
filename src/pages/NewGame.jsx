@@ -90,7 +90,8 @@ export default function NewGame() {
                     checked={group.players.every((player) => players[player.id])}
                     onCheck={() => addPlayersFromGroup(
                       group.players.reduce(
-                        (obj, player) => ({ ...obj, [player.id]: player.name }), {},
+                        (obj, player) => ({ ...obj, [player.id]: player.name }),
+                        {},
                       ),
                     )}
                     onUncheck={() => removePlayers(...group.players.map((player) => player.id))}
